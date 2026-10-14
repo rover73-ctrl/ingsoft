@@ -1,0 +1,306 @@
+Flashcards: Ingeniería de Software - 100 Puntos Clave
+📘 FUNDAMENTOS (1-15)
+1. ¿Qué es la Ingeniería de Software?
+Aplicación sistemática de métodos, herramientas y técnicas para el desarrollo y mantenimiento de software de calidad.
+
+2. ¿Cuál es la diferencia entre software y programa?
+Un programa es código; el software incluye código, documentación, datos y procedimientos.
+
+3. ¿Qué es la crisis del software?
+Problemática de proyectos que exceden presupuesto, tiempo y no cumplen requisitos.
+
+4. ¿Qué es un proceso de software?
+Conjunto de actividades que producen un producto de software.
+
+5. ¿Cuáles son las 4 actividades fundamentales del proceso?
+Especificación, desarrollo, validación y evolución.
+
+6. ¿Qué es el ciclo de vida del software?
+Fases por las que pasa el software desde su concepción hasta su retiro.
+
+7. ¿Qué es un modelo de proceso?
+Representación abstracta y simplificada del proceso de desarrollo.
+
+8. ¿Qué es la calidad del software?
+Grado en que el software cumple requisitos funcionales y no funcionales esperados.
+
+9. ¿Qué es la deuda técnica?
+Costo futuro de retrabajo por soluciones rápidas o subóptimas.
+
+10. ¿Qué es la mantenibilidad?
+Facilidad para modificar, corregir y mejorar el software.
+
+11. ¿Quién es considerado el padre de la Ingeniería de Software?
+Friedrich L. Bauer (acuñó el término en 1968) y Margaret Hamilton (pionera del término "software engineering").
+
+12. ¿Qué es un artefacto en ingeniería de software?
+Cualquier producto tangible del proceso: documentos, diagramas, código, modelos.
+
+13. ¿Qué es el software heredado (legacy)?
+Sistema antiguo aún en uso, difícil de mantener pero crítico para el negocio.
+
+14. ¿Qué es la escalabilidad?
+Capacidad del sistema de manejar crecimiento en usuarios, datos o carga.
+
+15. ¿Qué es la interoperabilidad?
+Capacidad de dos o más sistemas para intercambiar información y usarla.
+
+📋 REQUISITOS (16-30)
+16. ¿Qué es un requisito?
+Descripción de una necesidad o capacidad que el software debe cumplir.
+
+17. Requisitos funcionales vs no funcionales
+Funcionales: qué hace el sistema. No funcionales: cómo lo hace (rendimiento, seguridad).
+
+18. ¿Qué es la elicitación de requisitos?
+Proceso de descubrir necesidades de los stakeholders.
+
+19. ¿Qué es un stakeholder?
+Cualquier persona o grupo con interés en el sistema.
+
+20. ¿Qué es un caso de uso?
+Descripción de interacción entre actor y sistema para lograr un objetivo.
+
+21. ¿Qué es la especificación de requisitos (SRS)?
+Documento formal que describe qué debe hacer el sistema.
+
+22. ¿Qué es la trazabilidad de requisitos?
+Capacidad de rastrear requisitos a través del ciclo de vida.
+
+23. ¿Qué es la validación de requisitos?
+Verificar que los requisitos reflejen las necesidades reales del cliente.
+
+24. ¿Qué es la verificación de requisitos?
+Comprobar que los requisitos estén bien escritos, completos y sin ambigüedades.
+
+25. ¿Qué es un requisito de negocio?
+Objetivo de alto nivel de la organización (ej: aumentar ventas 20%).
+
+26. ¿Qué es un requisito de usuario?
+Necesidad expresada desde la perspectiva del usuario final.
+
+27. ¿Qué es un requisito de sistema?
+Especificación detallada de lo que el sistema debe hacer técnicamente.
+
+28. ¿Qué es la gestión de requisitos?
+Proceso de documentar, rastrear y controlar cambios en requisitos.
+
+29. ¿Qué es el análisis de factibilidad?
+Evaluación de viabilidad técnica, económica, legal y operativa del proyecto.
+
+30. ¿Qué es un prototipo?
+Versión preliminar del sistema para validar requisitos y diseño.
+
+🏗️ METODOLOGÍAS Y MODELOS (31-50)
+31. ¿Qué es el modelo en cascada?
+Modelo secuencial lineal: requisitos → diseño → implementación → pruebas → mantenimiento.
+
+32. ¿Qué es el modelo incremental?
+Desarrollo en incrementos que añaden funcionalidad progresivamente.
+
+33. ¿Qué es el modelo espiral?
+Modelo iterativo con énfasis en análisis de riesgos.
+
+34. ¿Qué es el desarrollo ágil?
+Enfoque iterativo e incremental con entregas frecuentes y adaptación al cambio.
+
+35. ¿Qué es Scrum?
+Framework ágil con sprints, roles (PO, SM, equipo) y artefactos.
+
+36. ¿Qué es un sprint?
+Iteración de tiempo fijo (1-4 semanas) que produce un incremento funcional.
+
+37. ¿Qué es Kanban?
+Método visual de gestión de flujo de trabajo con límites WIP.
+
+38. ¿Qué es XP (Extreme Programming)?
+Metodología ágil con prácticas como TDD, pair programming e integración continua.
+
+39. ¿Qué es DevOps?
+Cultura y prácticas que integran desarrollo y operaciones.
+
+40. ¿Qué es CI/CD?
+Integración Continua / Entrega-Despliegue Continuo: automatización de build, test y despliegue.
+
+41. ¿Qué es el Manifiesto Ágil?
+Documento de 2001 con 4 valores y 12 principios del desarrollo ágil.
+
+42. ¿Qué es un Product Owner?
+Rol de Scrum que representa al cliente y prioriza el backlog.
+
+43. ¿Qué es un Scrum Master?
+Facilitador que elimina impedimentos y asegura la práctica de Scrum.
+
+44. ¿Qué es el Product Backlog?
+Lista priorizada de todo lo que se necesita en el producto.
+
+45. ¿Qué es el Sprint Backlog?
+Subconjunto del Product Backlog seleccionado para un sprint.
+
+46. ¿Qué es una Daily Standup?
+Reunión diaria de 15 min para sincronizar el equipo.
+
+47. ¿Qué es una Retrospectiva?
+Reunión al final del sprint para mejorar el proceso.
+
+48. ¿Qué es el modelo RUP?
+Rational Unified Process: framework iterativo con 4 fases (Inicio, Elaboración, Construcción, Transición).
+
+49. ¿Qué es el modelo V?
+Extensión del cascada que relaciona cada fase de desarrollo con su prueba correspondiente.
+
+50. ¿Qué es el desarrollo basado en componentes?
+Construcción de sistemas reutilizando componentes de software existentes.
+
+🎨 DISEÑO Y ARQUITECTURA (51-70)
+51. ¿Qué es el diseño de software?
+Proceso de definir arquitectura, componentes e interfaces del sistema.
+
+52. ¿Qué es la arquitectura de software?
+Estructura fundamental del sistema: componentes y sus relaciones.
+
+53. ¿Qué es el patrón MVC?
+Modelo-Vista-Controlador: separación de datos, presentación y lógica.
+
+54. ¿Qué es un patrón de diseño?
+Solución reutilizable a un problema común de diseño.
+
+55. ¿Qué es la cohesión?
+Grado en que los elementos de un módulo están relacionados entre sí (alta = bueno).
+
+56. ¿Qué es el acoplamiento?
+Grado de dependencia entre módulos (bajo = bueno).
+
+57. ¿Qué es SOLID?
+5 principios de diseño OO: SRP, OCP, LSP, ISP, DIP.
+
+58. ¿Qué es SRP (Single Responsibility Principle)?
+Una clase debe tener una sola razón para cambiar.
+
+59. ¿Qué es OCP (Open/Closed Principle)?
+Abierto para extensión, cerrado para modificación.
+
+60. ¿Qué es LSP (Liskov Substitution Principle)?
+Subtipos deben poder sustituir a sus tipos base sin alterar el comportamiento.
+
+61. ¿Qué es ISP (Interface Segregation Principle)?
+Clientes no deben depender de interfaces que no usan.
+
+62. ¿Qué es DIP (Dependency Inversion Principle)?
+Depender de abstracciones, no de implementaciones concretas.
+
+63. ¿Qué es un diagrama UML?
+Lenguaje Unificado de Modelado: notación gráfica para diseñar sistemas.
+
+64. ¿Qué es un diagrama de clases?
+Muestra clases, atributos, métodos y relaciones en un sistema OO.
+
+65. ¿Qué es un diagrama de secuencia?
+Muestra interacción entre objetos a lo largo del tiempo.
+
+66. ¿Qué es un diagrama de casos de uso?
+Muestra actores y funcionalidades del sistema.
+
+67. ¿Qué es la arquitectura en capas?
+Organización del sistema en capas jerárquicas (presentación, lógica, datos).
+
+68. ¿Qué es la arquitectura cliente-servidor?
+Modelo donde clientes solicitan servicios a un servidor central.
+
+69. ¿Qué es la arquitectura de microservicios?
+Sistema dividido en servicios pequeños, independientes y desplegables.
+
+70. ¿Qué es la arquitectura monolítica?
+Aplicación única con todos los componentes integrados en un solo despliegue.
+
+💻 CODIFICACIÓN Y PRUEBAS (71-85)
+71. ¿Qué es una prueba unitaria?
+Verificación de una unidad de código (función/clase) de forma aislada.
+
+72. ¿Qué es TDD?
+Test-Driven Development: escribir pruebas antes del código.
+
+73. ¿Qué es una prueba de integración?
+Verifica interacción entre módulos o componentes.
+
+74. ¿Qué es una prueba de regresión?
+Verifica que cambios no rompan funcionalidad existente.
+
+75. ¿Qué es cobertura de código?
+Porcentaje de código ejecutado por las pruebas.
+
+76. ¿Qué es refactoring?
+Mejorar estructura interna del código sin cambiar su comportamiento.
+
+77. ¿Qué es code review?
+Revisión del código por pares para detectar defectos y mejorar calidad.
+
+78. ¿Qué es deuda técnica de código?
+Código subóptimo que dificulta mantenimiento futuro.
+
+79. ¿Qué es una prueba de aceptación?
+Verifica que el sistema cumple con los requisitos del cliente.
+
+80. ¿Qué es una prueba de sistema?
+Prueba del sistema completo en su entorno real.
+
+81. ¿Qué es una prueba de humo (smoke test)?
+Prueba rápida para verificar que las funciones básicas funcionan.
+
+82. ¿Qué es una prueba exploratoria?
+Prueba sin guion donde el tester explora el sistema libremente.
+
+83. ¿Qué es pair programming?
+Dos programadores trabajando juntos en el mismo código.
+
+84. ¿Qué es integración continua?
+Práctica de integrar código frecuentemente con verificación automática.
+
+85. ¿Qué es un bug?
+Defecto o error en el software que produce comportamiento incorrecto.
+
+📊 GESTIÓN, CALIDAD Y MÉTRICAS (86-100)
+86. ¿Qué es la estimación de software?
+Predicción de esfuerzo, tiempo y costo del proyecto.
+
+87. ¿Qué es COCOMO?
+Modelo empírico de estimación de costos basado en líneas de código y factores.
+
+88. ¿Qué es la gestión de riesgos?
+Identificación, análisis y mitigación de riesgos del proyecto.
+
+89. ¿Qué son las métricas de software?
+Medidas cuantitativas de atributos del software o proceso.
+
+90. ¿Qué es CMMI?
+Modelo de madurez de capacidades para mejorar procesos de software.
+
+91. ¿Qué es ISO 25010?
+Estándar de calidad de software con 8 características: funcionalidad, rendimiento, compatibilidad, usabilidad, fiabilidad, seguridad, mantenibilidad, portabilidad.
+
+92. ¿Qué es un punto de función (FP)?
+Métrica de tamaño funcional basada en entradas, salidas, consultas y archivos.
+
+93. ¿Qué es la Ley de Brooks?
+"Añadir personal a un proyecto atrasado lo retrasa aún más."
+
+94. ¿Qué es el triángulo de hierro?
+Restricciones del proyecto: alcance, tiempo y costo (con calidad en el centro).
+
+95. ¿Qué es la gestión de configuración?
+Control de versiones, cambios y líneas base de los artefactos.
+
+96. ¿Qué es Git?
+Sistema de control de versiones distribuido.
+
+97. ¿Qué es una línea base (baseline)?
+Versión aprobada y congelada de un artefacto o conjunto de ellos.
+
+98. ¿Qué es la gestión de cambios?
+Proceso de evaluar, aprobar e implementar cambios en el proyecto.
+
+99. ¿Qué es un post-mortem?
+Análisis posterior al proyecto para identificar lecciones aprendidas.
+
+100. ¿Qué es la mejora de procesos de software (SPI)?
+Iniciativas para optimizar continuamente los procesos de desarrollo.

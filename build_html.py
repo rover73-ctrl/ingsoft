@@ -1,0 +1,1235 @@
+# -*- coding: utf-8 -*-
+import sys
+
+html_content = """<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Estudio y Preparación - Ingeniería de Software (CLA035)</title>
+    <!-- Google Fonts Premium: Outfit, Plus Jakarta Sans y Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Hoja de Estilos CSS Dashboard EdTech Dark -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lógica JavaScript Externa (Banco Oficial de 105 Preguntas) -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         SIDEBAR LATERAL IZQUIERDO (IDÉNTICO A LA CAPTURA)
+         ========================================================================== -->
+    <aside class="app-sidebar">
+        <!-- Encabezado de Marca / Identidad -->
+        <a href="#" class="sidebar-brand" onclick="showView('dashboard'); return false;">
+            <div class="brand-cube-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m21.12 6.4-6.05-4.06a2 2 0 0 0-2.17-.05L2.9 6.27a2 2 0 0 0-1 1.73v7.94a2 2 0 0 0 1 1.73l6.05 4.06a2 2 0 0 0 2.17.05l9.95-3.94a2 2 0 0 0 1-1.73V8.13a2 2 0 0 0-.95-1.73Z"/>
+                    <path d="m3.29 7 9.71 4.9 8.7-3.9"/>
+                    <path d="M12 22V12"/>
+                </svg>
+            </div>
+            <div class="brand-text-block">
+                <span class="brand-heading">Ingeniería Software</span>
+                <span class="brand-caption">SOMMERVILLE • 9ª ED.</span>
+            </div>
+        </a>
+
+        <!-- 1. NAVEGACIÓN PRINCIPAL -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Navegación Principal</div>
+            <button class="sidebar-nav-item active" data-view="dashboard" onclick="showView('dashboard')">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">📊</span>
+                    <span>Tablero de Estudio</span>
+                </div>
+            </button>
+        </div>
+
+        <!-- 2. BANCO DE REACTIVOS -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Banco de Reactivos</div>
+            <button class="sidebar-nav-item" data-view="cuestionario" onclick="showView('cuestionario', 'all')">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">📝</span>
+                    <span>Banco Maestro (105Q)</span>
+                </div>
+                <span class="nav-item-badge badge-pink">105 Reactivos</span>
+            </button>
+        </div>
+
+        <!-- 3. UNIDADES DE ESTUDIO (15 PREGUNTAS POR UNIDAD) -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Unidades de Estudio</div>
+            <button class="sidebar-nav-item" onclick="openUnitQuiz(1)">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon" style="color:#06b6d4;">📘</span>
+                    <span>Unidad I: Conceptos</span>
+                </div>
+                <span class="nav-item-badge">15 Q</span>
+            </button>
+            <button class="sidebar-nav-item" onclick="openUnitQuiz(2)">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon" style="color:#10b981;">📊</span>
+                    <span>Unidad II: Gestión &amp; COCOMO</span>
+                </div>
+                <span class="nav-item-badge">15 Q</span>
+            </button>
+            <button class="sidebar-nav-item" onclick="openUnitQuiz(3)">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon" style="color:#8b5cf6;">🎯</span>
+                    <span>Unidad III: Requerimientos</span>
+                </div>
+                <span class="nav-item-badge">15 Q</span>
+            </button>
+            <button class="sidebar-nav-item" onclick="openUnitQuiz(4)">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon" style="color:#ec4899;">🏗️</span>
+                    <span>Unidad IV: Arquitectura</span>
+                </div>
+                <span class="nav-item-badge">15 Q</span>
+            </button>
+            <button class="sidebar-nav-item" onclick="openUnitQuiz(5)">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon" style="color:#14b8a6;">🧪</span>
+                    <span>Unidad V: V&amp;V / Pruebas</span>
+                </div>
+                <span class="nav-item-badge">15 Q</span>
+            </button>
+            <button class="sidebar-nav-item" onclick="openUnitQuiz(6)">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon" style="color:#f59e0b;">🔄</span>
+                    <span>Unidad VI: Evolución</span>
+                </div>
+                <span class="nav-item-badge">15 Q</span>
+            </button>
+            <button class="sidebar-nav-item" onclick="openUnitQuiz(7)">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon" style="color:#6366f1;">⚙️</span>
+                    <span>Unidad VII: CASE &amp; DevOps</span>
+                </div>
+                <span class="nav-item-badge">15 Q</span>
+            </button>
+        </div>
+
+        <!-- 4. EVALUACIÓN & HERRAMIENTAS -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Evaluación &amp; Herramientas</div>
+            <button class="sidebar-nav-item" onclick="startExamSimulator()">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">🎓</span>
+                    <span>Simulador Global (105Q)</span>
+                </div>
+            </button>
+            <button class="sidebar-nav-item" data-view="herramientas" onclick="showView('herramientas')">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">🧮</span>
+                    <span>Laboratorio &amp; Métricas</span>
+                </div>
+            </button>
+            <button class="sidebar-nav-item" data-view="flashcards" onclick="showView('flashcards')">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">🗂️</span>
+                    <span>Tarjetas de Memoria</span>
+                </div>
+                <span class="nav-item-badge badge-purple">100 Tarjetas</span>
+            </button>
+            <button class="sidebar-nav-item" data-view="glosario" onclick="showView('glosario')">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">📖</span>
+                    <span>Glosario Técnico A-Z</span>
+                </div>
+            </button>
+            <button class="sidebar-nav-item" data-view="practicas" onclick="showView('practicas')">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">💼</span>
+                    <span>Prácticas de Laboratorio (9)</span>
+                </div>
+            </button>
+            <button class="sidebar-nav-item" onclick="toggleProfessorMode()">
+                <div class="nav-item-left">
+                    <span class="nav-item-icon">👨‍🏫</span>
+                    <span>Clave Modo Docente</span>
+                </div>
+            </button>
+        </div>
+
+        <!-- Pie del Sidebar: Barra de Progreso del Alumno -->
+        <div class="sidebar-footer">
+            <div class="footer-progress-label">
+                <span>Dominio Curricular</span>
+                <span id="footerPercentText">0% Dominado</span>
+            </div>
+            <div class="footer-progress-bar">
+                <div id="footerProgressBar" class="footer-progress-fill"></div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ==========================================================================
+         ÁREA PRINCIPAL DEL DASHBOARD (APP MAIN)
+         ========================================================================== -->
+    <div class="app-main">
+
+        <!-- Barra Superior Sticky del Dashboard -->
+        <header class="dashboard-topbar">
+            <h1 class="topbar-page-title">
+                <span>Plataforma de Estudio y Preparación de Proyectos</span>
+            </h1>
+
+            <div class="header-search">
+                <span class="search-icon-pos">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </span>
+                <input type="text" id="globalSearchInput" class="header-search-input" placeholder="Buscar concepto o reactivo..." oninput="handleGlobalSearch(this.value)">
+            </div>
+
+            <div class="topbar-actions">
+                <button id="audioToggleBtn" class="topbar-icon-btn" onclick="toggleAudioFeedback()" title="Silenciar Efectos de Audio">
+                    🔊
+                </button>
+                <button id="themeToggleBtn" class="topbar-icon-btn" onclick="toggleTheme()" title="Cambiar Tema (Claro / Oscuro)">
+                    🌙
+                </button>
+                <button class="btn-exam-simulator" onclick="startExamSimulator()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+                    <span>Simulador Examen</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Contenedor Principal de Vistas -->
+        <div class="dashboard-content">
+
+            <!-- Banner de Filtro de Búsqueda Global -->
+            <div id="filterBanner" class="filter-banner" style="display:none; background:var(--bg-card); border:1px solid var(--border); padding:0.75rem 1.25rem; border-radius:var(--radius-md); justify-content:space-between; align-items:center;">
+                <span>Resultados coincidentes para: <strong id="filterQuery" style="color:var(--primary-light);"></strong></span>
+                <button onclick="clearFilter()" style="background:none; border:none; color:var(--primary-light); font-weight:800; cursor:pointer;">Limpiar búsqueda ✕</button>
+            </div>
+
+            <!-- ==============================================================
+                 VISTA 1: TABLERO DE ESTUDIO (DASHBOARD - POR DEFECTO)
+                 ============================================================== -->
+            <div id="dashboard-view" class="view-container active">
+
+                <!-- Banner de Acciones Rápidas con Gráfico de Circuitos -->
+                <div class="quick-action-banner">
+                    <div class="banner-buttons">
+                        <button class="banner-btn-blue" onclick="openUnitReading(1)">
+                            <span>📖 Comenzar Lectura Capítulo 1</span>
+                        </button>
+                        <button class="banner-btn-outline" onclick="openUnitQuiz(1)">
+                            <span>⚡ Test de Unidad 1</span>
+                        </button>
+                    </div>
+
+                    <!-- Gráfico Futurista de Circuitos y Redes en Neon Cyan/Verde -->
+                    <div class="banner-circuits">
+                        <svg width="340" height="90" viewBox="0 0 340 90" fill="none" style="position: absolute; right: 10px; top: 0;">
+                            <!-- Líneas de circuito -->
+                            <path d="M10 65 H80 L110 35 H200 L230 65 H320" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+                            <path d="M50 80 H120 L150 50 H240 L260 70 H330" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
+                            <path d="M130 15 H190 L210 35 H300" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.6"/>
+                            <!-- Nodos y Chips -->
+                            <circle cx="80" cy="65" r="4" fill="#06b6d4"/>
+                            <circle cx="110" cy="35" r="5" fill="#38bdf8"/>
+                            <circle cx="200" cy="35" r="5" fill="#10b981"/>
+                            <circle cx="230" cy="65" r="4" fill="#34d399"/>
+                            <rect x="145" y="44" width="12" height="12" rx="3" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
+                            <rect x="235" y="28" width="14" height="14" rx="3" fill="#047857" stroke="#34d399" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Fila de 4 Tarjetas de Estadísticas (Idéntico a la Captura) -->
+                <div class="stats-grid-row">
+                    <!-- Stat 1: Capítulos Leídos -->
+                    <div class="stat-metric-card" onclick="showView('lecturas')" style="cursor:pointer;" title="Ver lecturas teóricas">
+                        <div class="stat-icon-box stat-icon-blue">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+                        </div>
+                        <div class="stat-metric-info">
+                            <span class="stat-big-number">7/7</span>
+                            <span class="stat-small-label">Capítulos Leídos</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat 2: Preguntas Aprobadas -->
+                    <div class="stat-metric-card" onclick="showView('cuestionario', 'all')" style="cursor:pointer;" title="Resolver reactivos">
+                        <div class="stat-icon-box stat-icon-green">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div class="stat-metric-info">
+                            <span class="stat-big-number" id="statApprovedQuestions">0/105</span>
+                            <span class="stat-small-label">Preguntas Aprobadas</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3: Promedio de Aciertos -->
+                    <div class="stat-metric-card">
+                        <div class="stat-icon-box stat-icon-amber">
+                            <span style="font-size:1.3rem; font-weight:800;">%</span>
+                        </div>
+                        <div class="stat-metric-info">
+                            <span class="stat-big-number" id="statAverageScore">0%</span>
+                            <span class="stat-small-label">Promedio de Aciertos</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat 4: Módulos del Libro -->
+                    <div class="stat-metric-card">
+                        <div class="stat-icon-box stat-icon-purple">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <div class="stat-metric-info">
+                            <span class="stat-big-number">7 Módulos</span>
+                            <span class="stat-small-label">Teoría &amp; Casos Reales</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cabecera de la Sección de Módulos -->
+                <div class="modules-section-header">
+                    <div class="modules-title-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#38bdf8"><path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+                        <span>Módulos y Lecturas del Libro</span>
+                    </div>
+                    <span class="modules-hint">Haz clic en cualquier módulo para leer o evaluar</span>
+                </div>
+
+                <!-- Cuadrícula de 7 Módulos (3 Columnas con Bordes Resplandecientes) -->
+                <div class="modules-cards-grid">
+
+                    <!-- MÓDULO 1: Cyan -->
+                    <div class="module-card mod-1">
+                        <div>
+                            <div class="module-card-top">
+                                <span class="badge-module-pill">MÓDULO 1</span>
+                                <span class="badge-topic-tag" title="Fundamentos, Ciclo de Vida y Metodología">🌱 Fundamentos &amp; Metodología</span>
+                            </div>
+                            <h3 class="module-card-title">Elementos Conceptuales y Preparación del Software</h3>
+                            <p class="module-card-desc">
+                                Conceptos esenciales sobre software profesional, atributos canónicos de calidad (mantenibilidad, confiabilidad, eficiencia y aceptabilidad), modelos en cascada, desarrollo incremental y manifiesto ágil.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="module-card-meta">
+                                <span>📖 15 Preguntas</span>
+                                <span id="mod-status-1">⚪ No Intentado</span>
+                            </div>
+                            <div class="module-card-actions">
+                                <button class="btn-card-lecturas" onclick="openUnitReading(1)">👁️ Ver Lecturas</button>
+                                <button class="btn-card-cuestionario" onclick="openUnitQuiz(1)">📝 Cuestionario (15)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MÓDULO 2: Verde Esmeralda -->
+                    <div class="module-card mod-2">
+                        <div>
+                            <div class="module-card-top">
+                                <span class="badge-module-pill">MÓDULO 2</span>
+                                <span class="badge-topic-tag" title="Planificación, Ruta Crítica y COCOMO II">📊 Gestión &amp; COCOMO II</span>
+                            </div>
+                            <h3 class="module-card-title">Administración de Proyectos y Estimación</h3>
+                            <p class="module-card-desc">
+                                Cuantificación analítica del esfuerzo en Persona-Mes mediante el modelo COCOMO II (Barry Boehm), diagramas de actividades, cálculo de Ruta Crítica (holgura cero) y gestión proactiva de riesgos de software.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="module-card-meta">
+                                <span>📖 15 Preguntas</span>
+                                <span id="mod-status-2">⚪ No Intentado</span>
+                            </div>
+                            <div class="module-card-actions">
+                                <button class="btn-card-lecturas" onclick="openUnitReading(2)">👁️ Ver Lecturas</button>
+                                <button class="btn-card-cuestionario" onclick="openUnitQuiz(2)">📝 Cuestionario (15)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MÓDULO 3: Púrpura -->
+                    <div class="module-card mod-3">
+                        <div>
+                            <div class="module-card-top">
+                                <span class="badge-module-pill">MÓDULO 3</span>
+                                <span class="badge-topic-tag" title="Elicitación, SRS IEEE 830 y Casos de Uso">🎯 Requerimientos del Sistema</span>
+                            </div>
+                            <h3 class="module-card-title">Ingeniería de Requerimientos y Especificación</h3>
+                            <p class="module-card-desc">
+                                Elicitación y especificación formal de requerimientos funcionales y no funcionales conforme al estándar IEEE 830, modelos de contexto, diagramas de casos de uso UML, escenarios e historias de usuario.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="module-card-meta">
+                                <span>📖 15 Preguntas</span>
+                                <span id="mod-status-3">⚪ No Intentado</span>
+                            </div>
+                            <div class="module-card-actions">
+                                <button class="btn-card-lecturas" onclick="openUnitReading(3)">👁️ Ver Lecturas</button>
+                                <button class="btn-card-cuestionario" onclick="openUnitQuiz(3)">📝 Cuestionario (15)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MÓDULO 4: Rosa Neón -->
+                    <div class="module-card mod-4">
+                        <div>
+                            <div class="module-card-top">
+                                <span class="badge-module-pill">MÓDULO 4</span>
+                                <span class="badge-topic-tag" title="Cohesión, Acoplamiento y Patrones MVC">🏗️ Arquitectura &amp; Patrones</span>
+                            </div>
+                            <h3 class="module-card-title">Diseño de Software y Arquitectura</h3>
+                            <p class="module-card-desc">
+                                Principios de diseño modular (alta cohesión interna y bajo acoplamiento externo), patrones arquitectónicos canónicos (MVC, Capas, Repositorio, Cliente-Servidor y Tuberías) y modelado orientado a objetos.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="module-card-meta">
+                                <span>📖 15 Preguntas</span>
+                                <span id="mod-status-4">⚪ No Intentado</span>
+                            </div>
+                            <div class="module-card-actions">
+                                <button class="btn-card-lecturas" onclick="openUnitReading(4)">👁️ Ver Lecturas</button>
+                                <button class="btn-card-cuestionario" onclick="openUnitQuiz(4)">📝 Cuestionario (15)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MÓDULO 5: Teal -->
+                    <div class="module-card mod-5">
+                        <div>
+                            <div class="module-card-top">
+                                <span class="badge-module-pill">MÓDULO 5</span>
+                                <span class="badge-topic-tag" title="Barry Boehm, Caja Negra/Blanca y McCabe">🧪 Verificación &amp; Pruebas</span>
+                            </div>
+                            <h3 class="module-card-title">Verificación, Validación y Calidad del Software</h3>
+                            <p class="module-card-desc">
+                                Postulado canónico de Barry Boehm («¿producto correcto vs correctamente?»), pruebas de caja negra (particiones de equivalencia y valores límite), caja blanca (complejidad ciclomática de McCabe) y TDD.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="module-card-meta">
+                                <span>📖 15 Preguntas</span>
+                                <span id="mod-status-5">⚪ No Intentado</span>
+                            </div>
+                            <div class="module-card-actions">
+                                <button class="btn-card-lecturas" onclick="openUnitReading(5)">👁️ Ver Lecturas</button>
+                                <button class="btn-card-cuestionario" onclick="openUnitQuiz(5)">📝 Cuestionario (15)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MÓDULO 6: Ámbar -->
+                    <div class="module-card mod-6">
+                        <div>
+                            <div class="module-card-top">
+                                <span class="badge-module-pill">MÓDULO 6</span>
+                                <span class="badge-topic-tag" title="Leyes de Lehman y Sistemas Legacy">🔄 Evolución &amp; Refactorización</span>
+                            </div>
+                            <h3 class="module-card-title">Evolución y Mantenimiento del Software</h3>
+                            <p class="module-card-desc">
+                                Dinámica de evolución y Leyes de Lehman (cambio continuo y complejidad creciente), los tres tipos de mantenimiento (correctivo, adaptativo y perfectivo), refactorización preventiva y sistemas legados.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="module-card-meta">
+                                <span>📖 15 Preguntas</span>
+                                <span id="mod-status-6">⚪ No Intentado</span>
+                            </div>
+                            <div class="module-card-actions">
+                                <button class="btn-card-lecturas" onclick="openUnitReading(6)">👁️ Ver Lecturas</button>
+                                <button class="btn-card-cuestionario" onclick="openUnitQuiz(6)">📝 Cuestionario (15)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MÓDULO 7: Indigo -->
+                    <div class="module-card mod-7">
+                        <div>
+                            <div class="module-card-top">
+                                <span class="badge-module-pill">MÓDULO 7</span>
+                                <span class="badge-topic-tag" title="Upper/Lower CASE, Git y CI/CD">⚙️ CASE, Git &amp; CI/CD</span>
+                            </div>
+                            <h3 class="module-card-title">Herramientas CASE y Ambientes Modernos</h3>
+                            <p class="module-card-desc">
+                                Clasificación Upper CASE (análisis y diseño) y Lower CASE (compiladores, linters y suites de pruebas), control de versiones Git, integración continua (CI/CD con GitHub Actions) y plataformas ágiles (Jira, SonarQube).
+                            </p>
+                        </div>
+                        <div>
+                            <div class="module-card-meta">
+                                <span>📖 15 Preguntas</span>
+                                <span id="mod-status-7">⚪ No Intentado</span>
+                            </div>
+                            <div class="module-card-actions">
+                                <button class="btn-card-lecturas" onclick="openUnitReading(7)">👁️ Ver Lecturas</button>
+                                <button class="btn-card-cuestionario" onclick="openUnitQuiz(7)">📝 Cuestionario (15)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tarjeta Inferior de Ruta de Aprendizaje Recomendada -->
+                <div class="learning-path-card">
+                    <div class="learning-path-icon">💡</div>
+                    <div class="learning-path-content">
+                        <h4>Ruta de Aprendizaje Recomendada</h4>
+                        <p>Sigue esta secuencia metodológica para dominar con éxito los fundamentos y la práctica de la ingeniería de software profesional:</p>
+                        <div class="roadmap-steps-flow">
+                            <span class="roadmap-step-pill" onclick="openUnitReading(1)"><span class="roadmap-step-num">1</span> Conceptos Fundamentales</span>
+                            <span class="roadmap-step-pill" onclick="openUnitReading(2)"><span class="roadmap-step-num">2</span> Gestión &amp; Estimación</span>
+                            <span class="roadmap-step-pill" onclick="openUnitReading(3)"><span class="roadmap-step-num">3</span> Requerimientos</span>
+                            <span class="roadmap-step-pill" onclick="openUnitReading(4)"><span class="roadmap-step-num">4</span> Arquitectura</span>
+                            <span class="roadmap-step-pill" onclick="openUnitReading(5)"><span class="roadmap-step-num">5</span> Pruebas &amp; Calidad</span>
+                            <span class="roadmap-step-pill" onclick="openUnitReading(6)"><span class="roadmap-step-num">6</span> Evolución</span>
+                            <span class="roadmap-step-pill" onclick="openUnitReading(7)"><span class="roadmap-step-num">7</span> Automatización CASE</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ==============================================================
+                 VISTA 2: CUESTIONARIO EVALUATIVO (15 PREGUNTAS POR UNIDAD)
+                 ============================================================== -->
+            <div id="cuestionario-view" class="view-container">
+
+                <div class="view-back-bar">
+                    <button class="view-back-btn" onclick="showView('dashboard')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Volver al Tablero de Estudio</span>
+                    </button>
+                    <div style="font-family:'Outfit',sans-serif; font-weight:700; color:var(--text-dim); font-size:0.9rem;">
+                        Banco Oficial de 105 Reactivos (Ian Sommerville 9ª Ed.)
+                    </div>
+                </div>
+
+                <!-- Panel Exclusivo para Profesores (Modo Docente) -->
+                <div class="professor-bar">
+                    <div class="professor-bar-info">
+                        <div class="prof-icon-badge">🎓</div>
+                        <div>
+                            <h3 style="font-size: 1.1rem; color:var(--text-main);">Panel Exclusivo para Profesores (Modo Docente)</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-dim);">Activa este interruptor para revelar inmediatamente las claves analíticas, argumentaciones teóricas y justificaciones bibliográficas de las 105 preguntas.</p>
+                        </div>
+                    </div>
+                    <button id="toggleProfBtn" class="prof-btn" onclick="toggleProfessorMode()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+                        <span>Activar Clave del Profesor</span>
+                    </button>
+                </div>
+
+                <!-- Resumen de Puntuación Global -->
+                <div class="quiz-summary-card">
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-family:'Outfit',sans-serif; margin-bottom: 0.35rem;">Evaluación Continua del Estudiante</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-dim);" id="studyStatusText">🌱 Nivel: Estudiante Novel (0%)</p>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:1.25rem;">
+                        <div class="progress-bar-bg" style="width: 140px; height: 10px;">
+                            <div id="studyProgressBar" class="progress-bar-fill"></div>
+                        </div>
+                        <div class="quiz-score-badge">
+                            <span>Puntuación Global:</span>
+                            <strong id="quizScoreText">0 / 105 pts</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra Superior de Pestañas de Unidades para el Cuestionario -->
+                <div class="quiz-units-toolbar">
+                    <div class="quiz-tabs-scroll">
+                        <button class="quiz-unit-tab active" data-quiz-unit="1" onclick="switchQuizUnit(1)">
+                            <span>📘 Unidad I: Conceptos</span>
+                            <span class="quiz-unit-tab-score" id="unit-score-badge-1">0/15</span>
+                        </button>
+                        <button class="quiz-unit-tab" data-quiz-unit="2" onclick="switchQuizUnit(2)">
+                            <span>📊 Unidad II: Gestión</span>
+                            <span class="quiz-unit-tab-score" id="unit-score-badge-2">0/15</span>
+                        </button>
+                        <button class="quiz-unit-tab" data-quiz-unit="3" onclick="switchQuizUnit(3)">
+                            <span>🎯 Unidad III: Requerimientos</span>
+                            <span class="quiz-unit-tab-score" id="unit-score-badge-3">0/15</span>
+                        </button>
+                        <button class="quiz-unit-tab" data-quiz-unit="4" onclick="switchQuizUnit(4)">
+                            <span>🏗️ Unidad IV: Diseño</span>
+                            <span class="quiz-unit-tab-score" id="unit-score-badge-4">0/15</span>
+                        </button>
+                        <button class="quiz-unit-tab" data-quiz-unit="5" onclick="switchQuizUnit(5)">
+                            <span>🧪 Unidad V: Pruebas</span>
+                            <span class="quiz-unit-tab-score" id="unit-score-badge-5">0/15</span>
+                        </button>
+                        <button class="quiz-unit-tab" data-quiz-unit="6" onclick="switchQuizUnit(6)">
+                            <span>🔄 Unidad VI: Evolución</span>
+                            <span class="quiz-unit-tab-score" id="unit-score-badge-6">0/15</span>
+                        </button>
+                        <button class="quiz-unit-tab" data-quiz-unit="7" onclick="switchQuizUnit(7)">
+                            <span>⚙️ Unidad VII: CASE</span>
+                            <span class="quiz-unit-tab-score" id="unit-score-badge-7">0/15</span>
+                        </button>
+                        <button class="quiz-unit-tab" data-quiz-unit="all" onclick="switchQuizUnit('all')">
+                            <span>🌐 Ver Todas (105P)</span>
+                        </button>
+                    </div>
+
+                    <!-- Cabecera de Progreso de la Unidad Activa -->
+                    <div class="active-unit-header">
+                        <div>
+                            <h3 id="activeUnitTitleText">Unidad 1: 15 Preguntas Académicas</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 0.2rem;">Progreso: <strong id="activeUnitScoreText">0 / 15 correctas</strong></p>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1rem;">
+                            <div class="progress-bar-bg" style="width: 160px; height: 10px;">
+                                <div id="activeUnitProgressBar" class="progress-bar-fill"></div>
+                            </div>
+                            <button class="view-back-btn" onclick="resetQuizUnit()" style="font-size: 0.8rem; padding: 0.45rem 0.85rem;">🔄 Reiniciar Unidad</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor Dinámico donde app.js Renderiza las 15 Preguntas de la Unidad Activa -->
+                <div id="quizQuestionsContainer" class="quiz-questions-grid">
+                    <!-- Se puebla automáticamente por app.js con interactividad completa -->
+                </div>
+            </div>
+
+            <!-- ==============================================================
+                 VISTA 3: LECTURAS Y TEORÍA DE SOMMERVILLE (UNIDADES I A VII)
+                 ============================================================== -->
+            <div id="lecturas-view" class="view-container">
+
+                <div class="view-back-bar">
+                    <button class="view-back-btn" onclick="showView('dashboard')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Volver al Tablero de Estudio</span>
+                    </button>
+                    <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                        <button class="roadmap-step-pill" onclick="scrollToSection('unit-group-1')">U1</button>
+                        <button class="roadmap-step-pill" onclick="scrollToSection('unit-group-2')">U2</button>
+                        <button class="roadmap-step-pill" onclick="scrollToSection('unit-group-3')">U3</button>
+                        <button class="roadmap-step-pill" onclick="scrollToSection('unit-group-4')">U4</button>
+                        <button class="roadmap-step-pill" onclick="scrollToSection('unit-group-5')">U5</button>
+                        <button class="roadmap-step-pill" onclick="scrollToSection('unit-group-6')">U6</button>
+                        <button class="roadmap-step-pill" onclick="scrollToSection('unit-group-7')">U7</button>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <h2>Compendio Teórico Riguroso - Ian Sommerville (9ª Edición)</h2>
+                        <div class="section-subtitle">Definiciones formales, atributos esenciales, modelos matemáticos y diagramas de arquitectura</div>
+                    </div>
+                    <div class="sommerville-pill">Sommerville 9ª Edición • Pearson</div>
+                </div>
+
+                <!-- UNIDAD I -->
+                <div class="topic-group" id="unit-group-1">
+                    <div class="topic-group-title">
+                        <span>Unidad I: Introducción a la Ingeniería de Software</span>
+                        <span class="badge">Capítulos 1 y 2</span>
+                    </div>
+
+                    <div class="topic searchable-item">
+                        <div class="topic-header">
+                            <h4>1.1 Definición Canónica y Atributos del Buen Software</h4>
+                            <span class="topic-ref">Sommerville Cap. 1, pp. 5-10</span>
+                        </div>
+                        <div class="definition-box">
+                            <p><strong>Definición Canónica:</strong> «La ingeniería de software es una <strong>disciplina de ingeniería</strong> que se interesa por <strong>todos los aspectos</strong> de la producción de software, desde las primeras etapas de la especificación del sistema hasta el mantenimiento del sistema después de que se pone en operación.»</p>
+                            <p style="margin-top:0.75rem;"><strong>Los 4 Atributos Esenciales (Figura 1.2):</strong></p>
+                            <div class="grid-4" style="margin-top: 0.75rem;">
+                                <div class="attribute-card">
+                                    <strong style="color:#60a5fa;">🔧 Mantenibilidad</strong>
+                                    Capacidad del software de evolucionar ante cambios en el negocio y el entorno operativo.
+                                </div>
+                                <div class="attribute-card">
+                                    <strong style="color:#34d399;">🛡️ Confiabilidad y Seguridad</strong>
+                                    Fiabilidad operativa, inocuidad física/económica y protección contra accesos no autorizados.
+                                </div>
+                                <div class="attribute-card">
+                                    <strong style="color:#fbbf24;">⚡ Eficiencia</strong>
+                                    Optimización del uso de memoria, ciclos de CPU y ancho de banda en cualquier carga.
+                                </div>
+                                <div class="attribute-card">
+                                    <strong style="color:#c084fc;">🤝 Aceptabilidad</strong>
+                                    Usabilidad, comprensibilidad y compatibilidad armónica con el usuario final.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diagrama SVG de los 4 Atributos de Sommerville -->
+                        <div class="diagram-container">
+                            <svg class="diagram-svg" width="620" height="130" viewBox="0 0 620 130">
+                                <rect x="10" y="15" width="135" height="95" rx="8" fill="#2563eb" opacity="0.9"/>
+                                <text x="77" y="55" fill="#fff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">🔧 Mantenimiento</text>
+                                <text x="77" y="75" fill="#e0f2fe" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">Evolución continua</text>
+
+                                <rect x="165" y="15" width="135" height="95" rx="8" fill="#10b981" opacity="0.9"/>
+                                <text x="232" y="55" fill="#fff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">🛡️ Confiabilidad</text>
+                                <text x="232" y="75" fill="#ecfdf5" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">Seguridad y protección</text>
+
+                                <rect x="320" y="15" width="135" height="95" rx="8" fill="#f59e0b" opacity="0.9"/>
+                                <text x="387" y="55" fill="#fff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">⚡ Eficiencia</text>
+                                <text x="387" y="75" fill="#fffbeb" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">Uso óptimo de CPU</text>
+
+                                <rect x="475" y="15" width="135" height="95" rx="8" fill="#8b5cf6" opacity="0.9"/>
+                                <text x="542" y="55" fill="#fff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">🤝 Aceptabilidad</text>
+                                <text x="542" y="75" fill="#f5f3ff" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">Usable y compatible</text>
+                            </svg>
+                            <div class="diagram-caption">Figura 1.2: Los cuatro atributos esenciales del buen software profesional (Ian Sommerville, 9ª Edición).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIDAD II -->
+                <div class="topic-group" id="unit-group-2">
+                    <div class="topic-group-title">
+                        <span>Unidad II: Administración de Proyectos de Software</span>
+                        <span class="badge">Capítulos 22, 23 y 24</span>
+                    </div>
+
+                    <div class="topic searchable-item">
+                        <div class="topic-header">
+                            <h4>2.1 Modelo COCOMO II y Planificación con Ruta Crítica</h4>
+                            <span class="topic-ref">Sommerville Cap. 23, pp. 626-645</span>
+                        </div>
+                        <div class="definition-box">
+                            <p><strong>COCOMO II (Barry Boehm):</strong> Modelo algorítmico estructurado en tres submodelos: Composición de Aplicaciones (Puntos de Objeto), Diseño Temprano (Puntos de Función no ajustados) y Post-Arquitectura.</p>
+                            <div class="formula-callout" style="margin-top:0.75rem;">
+                                <strong>Ruta Crítica (Critical Path):</strong> Es la secuencia continua de actividades dependientes de principio a fin del proyecto cuya holgura total es CERO (0). Cualquier retraso en una actividad de la ruta crítica provoca automáticamente un retraso idéntico en la fecha final de entrega de todo el proyecto.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIDAD III -->
+                <div class="topic-group" id="unit-group-3">
+                    <div class="topic-group-title">
+                        <span>Unidad III: Requerimientos y Especificación del Software</span>
+                        <span class="badge">Capítulos 4 y 5</span>
+                    </div>
+
+                    <div class="topic searchable-item">
+                        <div class="topic-header">
+                            <h4>3.1 Elicitación, Clasificación y Documento SRS (IEEE 830)</h4>
+                            <span class="topic-ref">Sommerville Cap. 4, pp. 82-111</span>
+                        </div>
+                        <div class="definition-box">
+                            <p><strong>Requerimientos Funcionales vs No Funcionales:</strong> Los funcionales declaran los servicios que el sistema debe brindar (qué debe hacer); los no funcionales imponen restricciones y propiedades emergentes de calidad (del producto, organizacionales y externos).</p>
+                            <p style="margin-top:0.5rem;"><strong>Elicitación:</strong> Proceso de descubrimiento mediante entrevistas estructuradas, escenarios, casos de uso y observación etnográfica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIDAD IV -->
+                <div class="topic-group" id="unit-group-4">
+                    <div class="topic-group-title">
+                        <span>Unidad IV: Diseño de Software y Arquitectura</span>
+                        <span class="badge">Capítulos 6 y 7</span>
+                    </div>
+
+                    <div class="topic searchable-item">
+                        <div class="topic-header">
+                            <h4>4.1 Principios de Diseño y Patrones Arquitectónicos</h4>
+                            <span class="topic-ref">Sommerville Cap. 6 y 7</span>
+                        </div>
+                        <div class="definition-box">
+                            <p><strong>Cohesión y Acoplamiento:</strong> El buen diseño persigue <em>Alta Cohesión</em> (especialización atómica interna) y <em>Bajo Acoplamiento</em> (mínima dependencia entre módulos).</p>
+                            <p style="margin-top:0.5rem;"><strong>Los 5 Patrones Arquitectónicos Clásicos:</strong> Modelo-Vista-Controlador (MVC), Arquitectura en Capas, Repositorio Central (Pizarrón), Cliente-Servidor y Tuberías y Filtros (Pipe and Filter).</p>
+                        </div>
+
+                        <!-- Diagrama SVG de Arquitecturas -->
+                        <div class="diagram-container">
+                            <svg class="diagram-svg" width="600" height="120" viewBox="0 0 600 120">
+                                <rect x="10" y="15" width="80" height="30" rx="5" fill="#2563eb"/>
+                                <text x="50" y="34" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">Controlador</text>
+                                <rect x="100" y="60" width="80" height="30" rx="5" fill="#10b981"/>
+                                <text x="140" y="79" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">Modelo</text>
+                                <rect x="10" y="60" width="80" height="30" rx="5" fill="#8b5cf6"/>
+                                <text x="50" y="79" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">Vista</text>
+                                <text x="95" y="110" fill="var(--text-dim)" font-size="10" font-weight="700" text-anchor="middle">Patrón MVC</text>
+
+                                <rect x="220" y="15" width="130" height="24" rx="4" fill="#3b82f6"/>
+                                <text x="285" y="31" fill="#fff" font-size="9" font-weight="700" text-anchor="middle">Capa Presentación</text>
+                                <rect x="220" y="44" width="130" height="24" rx="4" fill="#4f46e5"/>
+                                <text x="285" y="60" fill="#fff" font-size="9" font-weight="700" text-anchor="middle">Lógica de Negocio</text>
+                                <rect x="220" y="73" width="130" height="24" rx="4" fill="#0ea5e9"/>
+                                <text x="285" y="89" fill="#fff" font-size="9" font-weight="700" text-anchor="middle">Acceso a Datos</text>
+                                <text x="285" y="110" fill="var(--text-dim)" font-size="10" font-weight="700" text-anchor="middle">Arquitectura en Capas</text>
+
+                                <circle cx="480" cy="50" r="28" fill="#f59e0b"/>
+                                <text x="480" y="53" fill="#fff" font-size="8" font-weight="700" text-anchor="middle">REPOSITORIO</text>
+                                <circle cx="435" cy="25" r="12" fill="#64748b"/>
+                                <circle cx="525" cy="25" r="12" fill="#64748b"/>
+                                <circle cx="435" cy="75" r="12" fill="#64748b"/>
+                                <circle cx="525" cy="75" r="12" fill="#64748b"/>
+                                <text x="480" y="110" fill="var(--text-dim)" font-size="10" font-weight="700" text-anchor="middle">Repositorio Central</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIDAD V -->
+                <div class="topic-group" id="unit-group-5">
+                    <div class="topic-group-title">
+                        <span>Unidad V: Verificación y Validación del Software</span>
+                        <span class="badge">Capítulo 8</span>
+                    </div>
+
+                    <div class="topic searchable-item">
+                        <div class="topic-header">
+                            <h4>5.1 Principio de Barry Boehm y Niveles de Prueba</h4>
+                            <span class="topic-ref">Sommerville Cap. 8, pp. 205-230</span>
+                        </div>
+                        <div class="definition-box">
+                            <p><strong>Postulado Canónico de Barry Boehm:</strong></p>
+                            <div class="grid-2" style="margin: 0.75rem 0;">
+                                <div class="attribute-card">
+                                    <strong style="color:#60a5fa;">⚙️ Verificación</strong>
+                                    <em>«¿Estamos construyendo el producto correctamente?»</em><br>
+                                    Comprueba conformidad estricta con la especificación técnica.
+                                </div>
+                                <div class="attribute-card">
+                                    <strong style="color:#34d399;">🎯 Validación</strong>
+                                    <em>«¿Estamos construyendo el producto correcto?»</em><br>
+                                    Comprueba que satisface las necesidades reales del usuario final.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIDAD VI -->
+                <div class="topic-group" id="unit-group-6">
+                    <div class="topic-group-title">
+                        <span>Unidad VI: Evolución y Mantenimiento del Software</span>
+                        <span class="badge">Capítulo 9</span>
+                    </div>
+
+                    <div class="topic searchable-item">
+                        <div class="topic-header">
+                            <h4>6.1 Leyes de Lehman y Estrategias para Sistemas Heredados</h4>
+                            <span class="topic-ref">Sommerville Cap. 9, pp. 234-256</span>
+                        </div>
+                        <div class="definition-box">
+                            <p><strong>Leyes de Lehman:</strong> El software tipo E que opera en el mundo real debe adaptarse continuamente (<em>Ley del Cambio Continuo</em>) o se degrada progresivamente (<em>Ley de la Complejidad Creciente</em>).</p>
+                            <p style="margin-top:0.5rem;"><strong>4 Opciones para Sistemas Heredados (Legacy):</strong> 1) Desechar (Scrap), 2) Mantener (Continue maintenance), 3) Reingeniería (Re-engineer), y 4) Reemplazar (Replace).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIDAD VII -->
+                <div class="topic-group" id="unit-group-7">
+                    <div class="topic-group-title">
+                        <span>Unidad VII: Herramientas CASE y Ambientes de Desarrollo</span>
+                        <span class="badge">Capítulo 25 y Glosario</span>
+                    </div>
+
+                    <div class="topic searchable-item">
+                        <div class="topic-header">
+                            <h4>7.1 Herramientas Upper CASE, Lower CASE e Integración Continua</h4>
+                            <span class="topic-ref">Sommerville Cap. 25 &amp; Glosario</span>
+                        </div>
+                        <div class="definition-box">
+                            <p><strong>Upper CASE (Front-end):</strong> Herramientas para fases tempranas de requisitos, diagramas de clases y casos de uso UML.</p>
+                            <p><strong>Lower CASE (Back-end):</strong> Compiladores, generadores de código, depuradores y suites automatizadas de pruebas (JUnit, Jest).</p>
+                            <p><strong>DevOps Moderno:</strong> Control de versiones distribuido (Git), análisis estático de código (SonarQube) y pipelines de CI/CD (GitHub Actions).</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ==============================================================
+                 VISTA 4: SIMULADORES Y CALCULADORAS (HERRAMIENTAS)
+                 ============================================================== -->
+            <div id="herramientas-view" class="view-container">
+
+                <div class="view-back-bar">
+                    <button class="view-back-btn" onclick="showView('dashboard')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Volver al Tablero de Estudio</span>
+                    </button>
+                    <div style="font-family:'Outfit',sans-serif; font-weight:700; color:var(--text-dim); font-size:0.9rem;">
+                        Modelos Matemáticos y Métricas de Software
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <h2>Calculadoras de Ingeniería de Software</h2>
+                        <div class="section-subtitle">Simuladores interactivos en tiempo real basados en modelos de Ian Sommerville</div>
+                    </div>
+                    <div class="sommerville-pill">Simuladores Interactivos</div>
+                </div>
+
+                <!-- Calculadora COCOMO II -->
+                <div class="interactive-tool-card">
+                    <div class="tool-header">
+                        <h5>🧮 1. Calculadora de Estimación COCOMO II (Barry Boehm)</h5>
+                        <span class="topic-ref">Fórmula: Esfuerzo = a × (KLOC)ᵇ PM</span>
+                    </div>
+                    <div class="tool-inputs-grid">
+                        <div class="input-group">
+                            <label for="cocomoKloc">Tamaño en KLOC (Miles de Líneas de Código):</label>
+                            <input type="number" id="cocomoKloc" class="input-control" value="25" min="1" max="1000" oninput="calculateCocomo()">
+                        </div>
+                        <div class="input-group">
+                            <label for="cocomoMode">Modo de Proyecto COCOMO:</label>
+                            <select id="cocomoMode" class="input-control" onchange="calculateCocomo()">
+                                <option value="organic">Orgánico (Equipo pequeño, experiencia previa, requisitos estables)</option>
+                                <option value="semidetached" selected>Semi-acoplado (Equipo intermedio, requisitos mixtos)</option>
+                                <option value="embedded">Empotrado / Embebido (Restricciones estrictas de hardware)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="tool-results-panel">
+                        <div>
+                            <div class="res-item-val" id="resCocomoEffort">-- PM</div>
+                            <div class="res-item-lbl">Esfuerzo Requerido</div>
+                        </div>
+                        <div>
+                            <div class="res-item-val" id="resCocomoTime">-- meses</div>
+                            <div class="res-item-lbl">Duración Prevista</div>
+                        </div>
+                        <div>
+                            <div class="res-item-val" id="resCocomoStaff">-- personas</div>
+                            <div class="res-item-lbl">Personal Promedio</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora Complejidad Ciclomática de McCabe -->
+                <div class="interactive-tool-card">
+                    <div class="tool-header">
+                        <h5>📊 2. Calculadora de Complejidad Ciclomática de McCabe</h5>
+                        <span class="topic-ref">Fórmula: V(G) = E - N + 2P</span>
+                    </div>
+                    <div class="tool-inputs-grid">
+                        <div class="input-group">
+                            <label for="mccabeE">Número de Aristas (E - Flujos de control):</label>
+                            <input type="number" id="mccabeE" class="input-control" value="14" min="1" oninput="calculateMcCabe()">
+                        </div>
+                        <div class="input-group">
+                            <label for="mccabeN">Número de Nodos (N - Bloques de código):</label>
+                            <input type="number" id="mccabeN" class="input-control" value="10" min="1" oninput="calculateMcCabe()">
+                        </div>
+                        <div class="input-group">
+                            <label for="mccabeP">Componentes Conexos (P - usualmente 1):</label>
+                            <input type="number" id="mccabeP" class="input-control" value="1" min="1" oninput="calculateMcCabe()">
+                        </div>
+                    </div>
+
+                    <div class="tool-results-panel">
+                        <div>
+                            <div class="res-item-val" id="resMcCabeVal">V(G) = 6</div>
+                            <div class="res-item-lbl">Caminos Básicos Independientes</div>
+                        </div>
+                        <div>
+                            <div class="res-item-val" id="resMcCabeRisk" style="font-size: 1.15rem; margin-top: 0.4rem;">🟢 Módulo Simple</div>
+                            <div class="res-item-lbl">Evaluación de Riesgo y Mantenibilidad</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ==============================================================
+                 VISTA 5: FLASHCARDS DE MEMORIZACIÓN 3D (100 PUNTOS CLAVE)
+                 ============================================================== -->
+            <div id="flashcards-view" class="view-container">
+
+                <div class="view-back-bar">
+                    <button class="view-back-btn" onclick="showView('dashboard')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Volver al Tablero de Estudio</span>
+                    </button>
+                    <div style="font-family:'Outfit',sans-serif; font-weight:700; color:var(--text-dim); font-size:0.9rem;">
+                        100 Puntos Clave de Ingeniería de Software
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <h2>Flashcards de Memorización Activa 3D (100 Puntos Clave)</h2>
+                        <div class="section-subtitle">Compendio oficial de 100 reactivos y conceptos esenciales organizados por áreas de conocimiento</div>
+                    </div>
+                    <div class="sommerville-pill">100 Tarjetas Oficiales</div>
+                </div>
+
+                <!-- Controles y Filtros de Categorías -->
+                <div class="flashcard-controls">
+                    <div class="filter-buttons">
+                        <button class="filter-btn flashcard-filter-btn active" onclick="filterFlashcards('all', this)">Todas (100)</button>
+                        <button class="filter-btn flashcard-filter-btn" onclick="filterFlashcards('cat-fundamentos', this)">📘 Fundamentos (15)</button>
+                        <button class="filter-btn flashcard-filter-btn" onclick="filterFlashcards('cat-requisitos', this)">📋 Requisitos (15)</button>
+                        <button class="filter-btn flashcard-filter-btn" onclick="filterFlashcards('cat-metodologias', this)">🏗️ Metodologías (20)</button>
+                        <button class="filter-btn flashcard-filter-btn" onclick="filterFlashcards('cat-diseno', this)">🎨 Diseño &amp; Arq. (20)</button>
+                        <button class="filter-btn flashcard-filter-btn" onclick="filterFlashcards('cat-pruebas', this)">💻 Pruebas (15)</button>
+                        <button class="filter-btn flashcard-filter-btn" onclick="filterFlashcards('cat-gestion', this)">📊 Gestión &amp; Métricas (15)</button>
+                    </div>
+                    <div class="progress-box">
+                        <span>Dominadas: <strong id="knownCardsCount">0</strong> / 100</span>
+                        <div class="progress-bar-bg" style="width: 140px;">
+                            <div id="fcProgressBar" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buscador Específico de Tarjetas de Memoria -->
+                <div class="glossary-search-box" style="margin-top: 1.25rem; margin-bottom: 0.5rem;">
+                    <span class="search-icon-pos">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </span>
+                    <input type="text" id="flashcardSearchInput" class="glossary-input" placeholder="Buscar en las 100 tarjetas (ej: Scrum, SOLID, COCOMO, Brooks, TDD, cascada, acoplamiento, deuda técnica...)" oninput="filterFlashcardsSearch(this.value)">
+                </div>
+
+                <!-- Contenedor Dinámico donde app.js Renderiza las 100 Tarjetas 3D -->
+                <div class="flashcard-container" id="fcContainer">
+                    <!-- Se puebla automáticamente con las 100 tarjetas interactivas 3D -->
+                </div>
+
+            </div>
+
+            <!-- ==============================================================
+                 VISTA 6: GLOSARIO TÉCNICO SOMMERVILLE A-Z
+                 ============================================================== -->
+            <div id="glosario-view" class="view-container">
+
+                <div class="view-back-bar">
+                    <button class="view-back-btn" onclick="showView('dashboard')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Volver al Tablero de Estudio</span>
+                    </button>
+                    <div style="font-family:'Outfit',sans-serif; font-weight:700; color:var(--text-dim); font-size:0.9rem;">
+                        Terminología Oficial Normalizada
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <h2>Glosario de Términos Clave de Sommerville</h2>
+                        <div class="section-subtitle">Definiciones formales extraídas directamente del glosario oficial (9ª Edición, pp. 733-748)</div>
+                    </div>
+                    <div class="sommerville-pill">Glosario Técnico</div>
+                </div>
+
+                <div class="glossary-search-box">
+                    <span class="search-icon-pos">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </span>
+                    <input type="text" id="glossarySearchInput" class="glossary-input" placeholder="Filtrar términos del glosario (ej: Cohesión, Acoplamiento, TDD, RUP...)" oninput="filterGlossary(this.value)">
+                </div>
+
+                <div class="glossary-grid" id="glossaryContainer">
+                    <div class="glossary-card">
+                        <h4>Acoplamiento (Coupling)</h4>
+                        <p>Medida de qué tan estrechamente conectado está un componente de sistema con otros componentes. Un acoplamiento bajo significa que los componentes pueden modificarse sin afectar a otros.</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>Cohesión (Cohesion)</h4>
+                        <p>Medida de qué tan bien integradas y enfocadas están las operaciones y datos en una sola unidad lógica de software. La alta cohesión funcional es una meta primaria del buen diseño.</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>Administración de Configuración</h4>
+                        <p>Proceso de administrar los cambios a un producto de software en evolución. Implica planeación, gestión de versiones, construcción del sistema y gestión de entregas (release).</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>Aseguramiento de Calidad (QA)</h4>
+                        <p>Proceso global para definir cómo puede lograrse la calidad del software y cómo la organización que desarrolla el software sabe que éste satisface los estándares definidos.</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>Caso de Uso (Use Case)</h4>
+                        <p>Especificación de un tipo de interacción entre un actor externo y un sistema para lograr un objetivo de valor específico.</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>CMMI</h4>
+                        <p>Marco de trabajo para la mejora de procesos que define un modelo de madurez de 5 niveles (Inicial, Administrado, Definido, Administrado cuantitativamente y Optimizado).</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>COCOMO II</h4>
+                        <p>Modelo algorítmico y empírico desarrollado por Barry Boehm para estimar el esfuerzo y el calendario requerido para el desarrollo de proyectos de software.</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>Diagrama de Secuencia</h4>
+                        <p>Diagrama de interacción UML que muestra el orden temporal de las llamadas y mensajes intercambiados entre objetos para completar una operación del sistema.</p>
+                    </div>
+                    <div class="glossary-card">
+                        <h4>Test-Driven Development (TDD)</h4>
+                        <p>Enfoque de desarrollo ágil donde las pruebas unitarias automatizadas se diseñan y codifican antes de escribir el código de producción del programa.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ==============================================================
+                 VISTA 7: PRÁCTICAS DE LABORATORIO & BIBLIOGRAFÍA
+                 ============================================================== -->
+            <div id="practicas-view" class="view-container">
+
+                <div class="view-back-bar">
+                    <button class="view-back-btn" onclick="showView('dashboard')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Volver al Tablero de Estudio</span>
+                    </button>
+                    <div style="font-family:'Outfit',sans-serif; font-weight:700; color:var(--text-dim); font-size:0.9rem;">
+                        Programa Académico Oficial y Fuentes Primarias
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <h2>Relación de Prácticas de Laboratorio</h2>
+                        <div class="section-subtitle">Programa académico práctico oficial (CLA035) con herramientas profesionales recomendadas</div>
+                    </div>
+                    <div class="sommerville-pill">9 Sesiones Prácticas • 27 Horas Totales</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nombre de la Práctica</th>
+                                <th>Unidad</th>
+                                <th>Duración</th>
+                                <th>Herramientas Recomendadas</th>
+                                <th>Entregable Académico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td>Herramientas de Administración de Proyectos 1</td>
+                                <td><span class="tag-pill u1">Unidad I</span></td>
+                                <td>3.0 h</td>
+                                <td>Trello, Jira Software, Notion</td>
+                                <td>Tablero Kanban y WBS de descomposición inicial</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td>Herramientas de Administración de Proyectos 2</td>
+                                <td><span class="tag-pill u2">Unidad II</span></td>
+                                <td>3.0 h</td>
+                                <td>ProjectLibre, MS Project, GanttProject</td>
+                                <td>Diagrama de Gantt y cálculo de Ruta Crítica (CPM)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td>Herramientas de Administración de Proyectos 3</td>
+                                <td><span class="tag-pill u2">Unidad II</span></td>
+                                <td>3.0 h</td>
+                                <td>Hojas de Estimación COCOMO II, Plan de Riesgos</td>
+                                <td>Matriz de Riesgos y Estimación de Esfuerzo en Persona-Mes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td>Herramientas de Modelado de Software 1</td>
+                                <td><span class="tag-pill u3">Unidad III</span></td>
+                                <td>3.0 h</td>
+                                <td>StarUML, PlantUML, Draw.io</td>
+                                <td>Diagrama de Casos de Uso con Especificación Textual</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td>Herramientas de Modelado de Software 2</td>
+                                <td><span class="tag-pill u3">Unidad III</span></td>
+                                <td>3.0 h</td>
+                                <td>Visual Paradigm, StarUML</td>
+                                <td>Diagramas de Secuencia y Diagramas de Estados</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6</strong></td>
+                                <td>Herramientas de Modelado de Software 3</td>
+                                <td><span class="tag-pill u4">Unidad IV</span></td>
+                                <td>3.0 h</td>
+                                <td>Enterprise Architect, Lucidchart</td>
+                                <td>Diagrama de Clases de Dominio y Diseño Arquitectónico MVC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7</strong></td>
+                                <td>Herramientas CASE 1 (Gestión de Configuración)</td>
+                                <td><span class="tag-pill u7">Unidad VII</span></td>
+                                <td>3.0 h</td>
+                                <td>Git, GitHub / GitLab</td>
+                                <td>Repositorio con flujo GitFlow, ramas y Pull Requests</td>
+                            </tr>
+                            <tr>
+                                <td><strong>8</strong></td>
+                                <td>Herramientas CASE 2 (Pruebas Automatizadas)</td>
+                                <td><span class="tag-pill u7">Unidad VII</span></td>
+                                <td>3.0 h</td>
+                                <td>JUnit, Jest, PyTest</td>
+                                <td>Suite de Pruebas Unitarias con cobertura de sentencias &gt;80%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>9</strong></td>
+                                <td>Herramientas CASE 3 (Calidad &amp; CI/CD)</td>
+                                <td><span class="tag-pill u7">Unidad VII</span></td>
+                                <td>3.0 h</td>
+                                <td>SonarQube, GitHub Actions</td>
+                                <td>Reporte de Deuda Técnica y Pipeline de Integración Continua</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Sección de Bibliografía -->
+                <div class="section-header" style="margin-top:2.5rem;">
+                    <div class="section-title-wrap">
+                        <h2>Bibliografía Básica y Fuentes Oficiales</h2>
+                        <div class="section-subtitle">Referencias normalizadas con soporte directo en la literatura internacional</div>
+                    </div>
+                    <div class="sommerville-pill">Norma APA / IEEE</div>
+                </div>
+
+                <ul class="biblio-list">
+                    <li class="biblio-item">
+                        <div class="biblio-icon">📕</div>
+                        <div class="biblio-content">
+                            <h4>Sommerville, Ian. (2011). <em>Ingeniería de Software</em>. 9ª Edición.</h4>
+                            <p>México: PEARSON EDUCACIÓN / Addison-Wesley. 792 páginas. ISBN: 978-607-32-0603-7 (versión impresa) / 978-607-32-0604-4 (e-book). Traducción oficial de Víctor Campos Olguín con revisión técnica internacional. Texto base oficial de este curso.</p>
+                        </div>
+                    </li>
+                    <li class="biblio-item">
+                        <div class="biblio-icon">📘</div>
+                        <div class="biblio-content">
+                            <h4>Pressman, Roger S. (2010). <em>Ingeniería del Software: Un enfoque práctico</em>. 7ª Edición.</h4>
+                            <p>México: McGraw-Hill Interamericana. Cobertura de marcos ágiles, métricas de calidad y diseño arquitectónico orientado a objetos.</p>
+                        </div>
+                    </li>
+                    <li class="biblio-item">
+                        <div class="biblio-icon">📙</div>
+                        <div class="biblio-content">
+                            <h4>Booch, Grady; Rumbaugh, James; Jacobson, Ivar. (2006). <em>El Lenguaje Unificado de Modelado (UML): Guía del Usuario</em>. 2ª Edición.</h4>
+                            <p>Madrid: Addison-Wesley / Pearson Educación. Referencia canónica de los creadores de UML para el modelado de software.</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div> <!-- Fin dashboard-content -->
+
+    </div> <!-- Fin app-main -->
+
+    <!-- Botón Flotante Volver Arriba -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+    </a>
+
+    <!-- Contenedor de Notificaciones Toast -->
+    <div id="toastContainer" class="toast-container"></div>
+
+</body>
+</html>
+"""
+
+with open('hola.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("hola.html generated successfully!")

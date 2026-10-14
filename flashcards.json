@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es la Ingeniería de Software?",
+    "answer": "Aplicación sistemática de métodos, herramientas y técnicas para el desarrollo y mantenimiento de software de calidad."
+  },
+  {
+    "id": 2,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Cuál es la diferencia entre software y programa?",
+    "answer": "Un programa es código; el software incluye código, documentación, datos y procedimientos."
+  },
+  {
+    "id": 3,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es la crisis del software?",
+    "answer": "Problemática de proyectos que exceden presupuesto, tiempo y no cumplen requisitos."
+  },
+  {
+    "id": 4,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es un proceso de software?",
+    "answer": "Conjunto de actividades que producen un producto de software."
+  },
+  {
+    "id": 5,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Cuáles son las 4 actividades fundamentales del proceso?",
+    "answer": "Especificación, desarrollo, validación y evolución."
+  },
+  {
+    "id": 6,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es el ciclo de vida del software?",
+    "answer": "Fases por las que pasa el software desde su concepción hasta su retiro."
+  },
+  {
+    "id": 7,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es un modelo de proceso?",
+    "answer": "Representación abstracta y simplificada del proceso de desarrollo."
+  },
+  {
+    "id": 8,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es la calidad del software?",
+    "answer": "Grado en que el software cumple requisitos funcionales y no funcionales esperados."
+  },
+  {
+    "id": 9,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es la deuda técnica?",
+    "answer": "Costo futuro de retrabajo por soluciones rápidas o subóptimas."
+  },
+  {
+    "id": 10,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es la mantenibilidad?",
+    "answer": "Facilidad para modificar, corregir y mejorar el software."
+  },
+  {
+    "id": 11,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Quién es considerado el padre de la Ingeniería de Software?",
+    "answer": "Friedrich L. Bauer (acuñó el término en 1968) y Margaret Hamilton (pionera del término \"software engineering\")."
+  },
+  {
+    "id": 12,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es un artefacto en ingeniería de software?",
+    "answer": "Cualquier producto tangible del proceso: documentos, diagramas, código, modelos."
+  },
+  {
+    "id": 13,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es el software heredado (legacy)?",
+    "answer": "Sistema antiguo aún en uso, difícil de mantener pero crítico para el negocio."
+  },
+  {
+    "id": 14,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es la escalabilidad?",
+    "answer": "Capacidad del sistema de manejar crecimiento en usuarios, datos o carga."
+  },
+  {
+    "id": 15,
+    "cat": "cat-fundamentos",
+    "catName": "📘 Fundamentos",
+    "question": "¿Qué es la interoperabilidad?",
+    "answer": "Capacidad de dos o más sistemas para intercambiar información y usarla."
+  },
+  {
+    "id": 16,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es un requisito?",
+    "answer": "Descripción de una necesidad o capacidad que el software debe cumplir."
+  },
+  {
+    "id": 17,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "Requisitos funcionales vs no funcionales",
+    "answer": "Funcionales: qué hace el sistema. No funcionales: cómo lo hace (rendimiento, seguridad)."
+  },
+  {
+    "id": 18,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es la elicitación de requisitos?",
+    "answer": "Proceso de descubrir necesidades de los stakeholders."
+  },
+  {
+    "id": 19,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es un stakeholder?",
+    "answer": "Cualquier persona o grupo con interés en el sistema."
+  },
+  {
+    "id": 20,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es un caso de uso?",
+    "answer": "Descripción de interacción entre actor y sistema para lograr un objetivo."
+  },
+  {
+    "id": 21,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es la especificación de requisitos (SRS)?",
+    "answer": "Documento formal que describe qué debe hacer el sistema."
+  },
+  {
+    "id": 22,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es la trazabilidad de requisitos?",
+    "answer": "Capacidad de rastrear requisitos a través del ciclo de vida."
+  },
+  {
+    "id": 23,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es la validación de requisitos?",
+    "answer": "Verificar que los requisitos reflejen las necesidades reales del cliente."
+  },
+  {
+    "id": 24,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es la verificación de requisitos?",
+    "answer": "Comprobar que los requisitos estén bien escritos, completos y sin ambigüedades."
+  },
+  {
+    "id": 25,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es un requisito de negocio?",
+    "answer": "Objetivo de alto nivel de la organización (ej: aumentar ventas 20%)."
+  },
+  {
+    "id": 26,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es un requisito de usuario?",
+    "answer": "Necesidad expresada desde la perspectiva del usuario final."
+  },
+  {
+    "id": 27,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es un requisito de sistema?",
+    "answer": "Especificación detallada de lo que el sistema debe hacer técnicamente."
+  },
+  {
+    "id": 28,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es la gestión de requisitos?",
+    "answer": "Proceso de documentar, rastrear y controlar cambios en requisitos."
+  },
+  {
+    "id": 29,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es el análisis de factibilidad?",
+    "answer": "Evaluación de viabilidad técnica, económica, legal y operativa del proyecto."
+  },
+  {
+    "id": 30,
+    "cat": "cat-requisitos",
+    "catName": "📋 Requisitos",
+    "question": "¿Qué es un prototipo?",
+    "answer": "Versión preliminar del sistema para validar requisitos y diseño."
+  },
+  {
+    "id": 31,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el modelo en cascada?",
+    "answer": "Modelo secuencial lineal: requisitos → diseño → implementación → pruebas → mantenimiento."
+  },
+  {
+    "id": 32,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el modelo incremental?",
+    "answer": "Desarrollo en incrementos que añaden funcionalidad progresivamente."
+  },
+  {
+    "id": 33,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el modelo espiral?",
+    "answer": "Modelo iterativo con énfasis en análisis de riesgos."
+  },
+  {
+    "id": 34,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el desarrollo ágil?",
+    "answer": "Enfoque iterativo e incremental con entregas frecuentes y adaptación al cambio."
+  },
+  {
+    "id": 35,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es Scrum?",
+    "answer": "Framework ágil con sprints, roles (PO, SM, equipo) y artefactos."
+  },
+  {
+    "id": 36,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es un sprint?",
+    "answer": "Iteración de tiempo fijo (1-4 semanas) que produce un incremento funcional."
+  },
+  {
+    "id": 37,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es Kanban?",
+    "answer": "Método visual de gestión de flujo de trabajo con límites WIP."
+  },
+  {
+    "id": 38,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es XP (Extreme Programming)?",
+    "answer": "Metodología ágil con prácticas como TDD, pair programming e integración continua."
+  },
+  {
+    "id": 39,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es DevOps?",
+    "answer": "Cultura y prácticas que integran desarrollo y operaciones."
+  },
+  {
+    "id": 40,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es CI/CD?",
+    "answer": "Integración Continua / Entrega-Despliegue Continuo: automatización de build, test y despliegue."
+  },
+  {
+    "id": 41,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el Manifiesto Ágil?",
+    "answer": "Documento de 2001 con 4 valores y 12 principios del desarrollo ágil."
+  },
+  {
+    "id": 42,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es un Product Owner?",
+    "answer": "Rol de Scrum que representa al cliente y prioriza el backlog."
+  },
+  {
+    "id": 43,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es un Scrum Master?",
+    "answer": "Facilitador que elimina impedimentos y asegura la práctica de Scrum."
+  },
+  {
+    "id": 44,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el Product Backlog?",
+    "answer": "Lista priorizada de todo lo que se necesita en el producto."
+  },
+  {
+    "id": 45,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el Sprint Backlog?",
+    "answer": "Subconjunto del Product Backlog seleccionado para un sprint."
+  },
+  {
+    "id": 46,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es una Daily Standup?",
+    "answer": "Reunión diaria de 15 min para sincronizar el equipo."
+  },
+  {
+    "id": 47,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es una Retrospectiva?",
+    "answer": "Reunión al final del sprint para mejorar el proceso."
+  },
+  {
+    "id": 48,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el modelo RUP?",
+    "answer": "Rational Unified Process: framework iterativo con 4 fases (Inicio, Elaboración, Construcción, Transición)."
+  },
+  {
+    "id": 49,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el modelo V?",
+    "answer": "Extensión del cascada que relaciona cada fase de desarrollo con su prueba correspondiente."
+  },
+  {
+    "id": 50,
+    "cat": "cat-metodologias",
+    "catName": "🏗️ Metodologías",
+    "question": "¿Qué es el desarrollo basado en componentes?",
+    "answer": "Construcción de sistemas reutilizando componentes de software existentes."
+  },
+  {
+    "id": 51,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es el diseño de software?",
+    "answer": "Proceso de definir arquitectura, componentes e interfaces del sistema."
+  },
+  {
+    "id": 52,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es la arquitectura de software?",
+    "answer": "Estructura fundamental del sistema: componentes y sus relaciones."
+  },
+  {
+    "id": 53,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es el patrón MVC?",
+    "answer": "Modelo-Vista-Controlador: separación de datos, presentación y lógica."
+  },
+  {
+    "id": 54,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es un patrón de diseño?",
+    "answer": "Solución reutilizable a un problema común de diseño."
+  },
+  {
+    "id": 55,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es la cohesión?",
+    "answer": "Grado en que los elementos de un módulo están relacionados entre sí (alta = bueno)."
+  },
+  {
+    "id": 56,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es el acoplamiento?",
+    "answer": "Grado de dependencia entre módulos (bajo = bueno)."
+  },
+  {
+    "id": 57,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es SOLID?",
+    "answer": "5 principios de diseño OO: SRP, OCP, LSP, ISP, DIP."
+  },
+  {
+    "id": 58,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es SRP (Single Responsibility Principle)?",
+    "answer": "Una clase debe tener una sola razón para cambiar."
+  },
+  {
+    "id": 59,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es OCP (Open/Closed Principle)?",
+    "answer": "Abierto para extensión, cerrado para modificación."
+  },
+  {
+    "id": 60,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es LSP (Liskov Substitution Principle)?",
+    "answer": "Subtipos deben poder sustituir a sus tipos base sin alterar el comportamiento."
+  },
+  {
+    "id": 61,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es ISP (Interface Segregation Principle)?",
+    "answer": "Clientes no deben depender de interfaces que no usan."
+  },
+  {
+    "id": 62,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es DIP (Dependency Inversion Principle)?",
+    "answer": "Depender de abstracciones, no de implementaciones concretas."
+  },
+  {
+    "id": 63,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es un diagrama UML?",
+    "answer": "Lenguaje Unificado de Modelado: notación gráfica para diseñar sistemas."
+  },
+  {
+    "id": 64,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es un diagrama de clases?",
+    "answer": "Muestra clases, atributos, métodos y relaciones en un sistema OO."
+  },
+  {
+    "id": 65,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es un diagrama de secuencia?",
+    "answer": "Muestra interacción entre objetos a lo largo del tiempo."
+  },
+  {
+    "id": 66,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es un diagrama de casos de uso?",
+    "answer": "Muestra actores y funcionalidades del sistema."
+  },
+  {
+    "id": 67,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es la arquitectura en capas?",
+    "answer": "Organización del sistema en capas jerárquicas (presentación, lógica, datos)."
+  },
+  {
+    "id": 68,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es la arquitectura cliente-servidor?",
+    "answer": "Modelo donde clientes solicitan servicios a un servidor central."
+  },
+  {
+    "id": 69,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es la arquitectura de microservicios?",
+    "answer": "Sistema dividido en servicios pequeños, independientes y desplegables."
+  },
+  {
+    "id": 70,
+    "cat": "cat-diseno",
+    "catName": "🎨 Diseño y Arq.",
+    "question": "¿Qué es la arquitectura monolítica?",
+    "answer": "Aplicación única con todos los componentes integrados en un solo despliegue."
+  },
+  {
+    "id": 71,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es una prueba unitaria?",
+    "answer": "Verificación de una unidad de código (función/clase) de forma aislada."
+  },
+  {
+    "id": 72,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es TDD?",
+    "answer": "Test-Driven Development: escribir pruebas antes del código."
+  },
+  {
+    "id": 73,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es una prueba de integración?",
+    "answer": "Verifica interacción entre módulos o componentes."
+  },
+  {
+    "id": 74,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es una prueba de regresión?",
+    "answer": "Verifica que cambios no rompan funcionalidad existente."
+  },
+  {
+    "id": 75,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es cobertura de código?",
+    "answer": "Porcentaje de código ejecutado por las pruebas."
+  },
+  {
+    "id": 76,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es refactoring?",
+    "answer": "Mejorar estructura interna del código sin cambiar su comportamiento."
+  },
+  {
+    "id": 77,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es code review?",
+    "answer": "Revisión del código por pares para detectar defectos y mejorar calidad."
+  },
+  {
+    "id": 78,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es deuda técnica de código?",
+    "answer": "Código subóptimo que dificulta mantenimiento futuro."
+  },
+  {
+    "id": 79,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es una prueba de aceptación?",
+    "answer": "Verifica que el sistema cumple con los requisitos del cliente."
+  },
+  {
+    "id": 80,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es una prueba de sistema?",
+    "answer": "Prueba del sistema completo en su entorno real."
+  },
+  {
+    "id": 81,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es una prueba de humo (smoke test)?",
+    "answer": "Prueba rápida para verificar que las funciones básicas funcionan."
+  },
+  {
+    "id": 82,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es una prueba exploratoria?",
+    "answer": "Prueba sin guion donde el tester explora el sistema libremente."
+  },
+  {
+    "id": 83,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es pair programming?",
+    "answer": "Dos programadores trabajando juntos en el mismo código."
+  },
+  {
+    "id": 84,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es integración continua?",
+    "answer": "Práctica de integrar código frecuentemente con verificación automática."
+  },
+  {
+    "id": 85,
+    "cat": "cat-pruebas",
+    "catName": "💻 Pruebas",
+    "question": "¿Qué es un bug?",
+    "answer": "Defecto o error en el software que produce comportamiento incorrecto."
+  },
+  {
+    "id": 86,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es la estimación de software?",
+    "answer": "Predicción de esfuerzo, tiempo y costo del proyecto."
+  },
+  {
+    "id": 87,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es COCOMO?",
+    "answer": "Modelo empírico de estimación de costos basado en líneas de código y factores."
+  },
+  {
+    "id": 88,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es la gestión de riesgos?",
+    "answer": "Identificación, análisis y mitigación de riesgos del proyecto."
+  },
+  {
+    "id": 89,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué son las métricas de software?",
+    "answer": "Medidas cuantitativas de atributos del software o proceso."
+  },
+  {
+    "id": 90,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es CMMI?",
+    "answer": "Modelo de madurez de capacidades para mejorar procesos de software."
+  },
+  {
+    "id": 91,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es ISO 25010?",
+    "answer": "Estándar de calidad de software con 8 características: funcionalidad, rendimiento, compatibilidad, usabilidad, fiabilidad, seguridad, mantenibilidad, portabilidad."
+  },
+  {
+    "id": 92,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es un punto de función (FP)?",
+    "answer": "Métrica de tamaño funcional basada en entradas, salidas, consultas y archivos."
+  },
+  {
+    "id": 93,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es la Ley de Brooks?",
+    "answer": "\"Añadir personal a un proyecto atrasado lo retrasa aún más.\""
+  },
+  {
+    "id": 94,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es el triángulo de hierro?",
+    "answer": "Restricciones del proyecto: alcance, tiempo y costo (con calidad en el centro)."
+  },
+  {
+    "id": 95,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es la gestión de configuración?",
+    "answer": "Control de versiones, cambios y líneas base de los artefactos."
+  },
+  {
+    "id": 96,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es Git?",
+    "answer": "Sistema de control de versiones distribuido."
+  },
+  {
+    "id": 97,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es una línea base (baseline)?",
+    "answer": "Versión aprobada y congelada de un artefacto o conjunto de ellos."
+  },
+  {
+    "id": 98,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es la gestión de cambios?",
+    "answer": "Proceso de evaluar, aprobar e implementar cambios en el proyecto."
+  },
+  {
+    "id": 99,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es un post-mortem?",
+    "answer": "Análisis posterior al proyecto para identificar lecciones aprendidas."
+  },
+  {
+    "id": 100,
+    "cat": "cat-gestion",
+    "catName": "📊 Gestión & Métricas",
+    "question": "¿Qué es la mejora de procesos de software (SPI)?",
+    "answer": "Iniciativas para optimizar continuamente los procesos de desarrollo."
+  }
+]
